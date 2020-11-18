@@ -17,66 +17,61 @@ import "../styles/ComingSoon.css";
 class ComingSoon extends Component {
   state = {
     countdown: {
-      countdownDate: "2020-12-31 00:00:00"
+      countdownDate: "2021-12-31 00:00:00",
     },
     logo: {
       alt: "Spinning Gear",
       src: logo,
-      spinSpeed: "slow"
+      spinSpeed: "slow",
     },
     title: {
-      text: "Coming Soon!"
+      text: "Coming Soon!",
     },
     description: {
       text:
-        "The Coding From Null course platform will be up and running shortly. Please subscribe to our newsletter below to receive updates when new course material is available."
+        "The main vision of this ministry is to spread the word of God and salvation through music. Yes! We live to praise and worship just as David said in Psalms 63:4",
     },
     subscribe: {
       placeholder: "Enter Email Address",
-      buttonText: "Submit"
+      buttonText: "Submit",
     },
     links: [
       {
-        url: "https://www.facebook.com/groups/CodingFromNull",
+        url: "https://www.facebook.com/ILiveToPraiseAndWorship",
         logo: facebook,
-        text: "Join"
+        text: "Join",
       },
       {
-        url: "https://www.instagram.com/codingfromnull",
+        url: "https://www.instagram.com/IliveToPraiseAndWorship",
         logo: instagram,
-        text: "Follow"
+        text: "Follow",
       },
       {
-        url: "https://www.youtube.com/channel/UC9Psp9-p9jgHfDBReAAcZ3w",
+        url: "https://www.youtube.com/channel/UCiMPPOOqk4F46dqSipYbY8Q",
         logo: youtube,
-        text: "Watch"
+        text: "Watch",
       },
-      {
-        url: "https://www.twitter.com/CodingFromNull",
-        logo: twitter,
-        text: "Tweet"
-      }
     ],
     notification: {
       src: "",
       alt: "",
       message: "",
-      visible: false,
-      level: ""
-    }
+      visible: true,
+      level: "",
+    },
   };
 
-  configureNotification = obj => {
+  configureNotification = (obj) => {
     const notification = { ...this.state.notification };
     notification.message = obj.body.msg;
     if (obj.status === 200) {
-      notification.src = check
-      notification.alt = "Check Mark"
-      notification.level = "success"
+      notification.src = check;
+      notification.alt = "Check Mark";
+      notification.level = "success";
     } else {
-      notification.src = xmark
-      notification.alt = "X Mark"
-      notification.level = "error"
+      notification.src = xmark;
+      notification.alt = "X Mark";
+      notification.level = "error";
     }
     this.setState({ notification });
   };
@@ -111,7 +106,7 @@ class ComingSoon extends Component {
       subscribe,
       links,
       countdown,
-      notification
+      notification,
     } = this.state;
 
     return (

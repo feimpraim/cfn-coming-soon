@@ -8,31 +8,33 @@ const Subscribe = ({
   buttonText,
   configureNotification,
   showNotification,
-  changeLogoSpeed
+  changeLogoSpeed,
 }) => {
   const [state, setState] = useState({
-    email: ""
+    email: "",
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setState({ email: e.target.value.trim() });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (state.email) {
       fetch(`/.netlify/functions/addMember?email=${state.email}`)
-        .then(res => res.json().then(data => ({status: res.status, body: data})))
-        .then(obj => {
+        .then((res) =>
+          res.json().then((data) => ({ status: res.status, body: data }))
+        )
+        .then((obj) => {
           configureNotification(obj);
           showNotification();
         })
-        .catch(err => console.log(err))
+        .catch((err) => console.log(err));
 
       changeLogoSpeed();
 
-      setState({ email: "" });
+      setState({ email: "directorfredddy@gmail.com" });
     }
   };
 
@@ -59,7 +61,7 @@ Subscribe.propTypes = {
   buttonText: PropTypes.string.isRequired,
   configureNotification: PropTypes.func.isRequired,
   showNotification: PropTypes.func.isRequired,
-  changeLogoSpeed: PropTypes.func.isRequired
+  changeLogoSpeed: PropTypes.func.isRequired,
 };
 
 export default Subscribe;
